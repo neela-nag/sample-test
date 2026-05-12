@@ -20,7 +20,7 @@ Issue a refund against a captured PayCart payment using the `POST /v1/refunds` e
 
 ## Prerequisites
 
-- A captured payment ID. The sandbox provides `pay_01HABCDEF12345` pre-loaded with $100.00 USD.
+- A captured payment ID. The sandbox provides `pay_01HABCDEF12345` pre-loaded with €100.00 EUR.
 - A sandbox API key (prefix `sk_test_`). See [Before you start — What you need](before-you-begin.md#what-you-need-for-a-refund).
 - A registered webhook endpoint subscribed to `refund.succeeded` and `refund.failed`.
 - An idempotency-key generation strategy. See [Before you start — Why do you need the same key for refund](before-you-begin.md#why-do-you-need-the-same-key-for-refund).
@@ -55,7 +55,7 @@ Use this task when a customer requests a full or partial refund on a captured pa
       "object": "refund",
       "payment_id": "pay_01HABCDEF12345",
       "amount": 2500,
-      "currency": "USD",
+      "currency": "EUR",
       "status": "pending",
       "reason": "customer_request",
       "created_at": "2026-04-12T14:22:08Z"
@@ -85,7 +85,7 @@ If `refund.failed` arrives instead, your task is not complete — see [Troublesh
 
 ## Example
 
-A partial refund of $25 against a $100 captured payment:
+A partial refund of €25 against a €100 captured payment:
 
 - Request `amount`: `2500` (cents) against `pay_01HABCDEF12345`.
 - Response: `status: "pending"`, refund ID `rfd_01HXYZ7890ABCDEF`.

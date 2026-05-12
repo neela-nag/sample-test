@@ -32,7 +32,7 @@ Content-Type: application/json
 {
   "payment_id": "pay_01HABCDEF12345",
   "amount": 2500,
-  "currency": "USD",
+  "currency": "EUR",
   "reason": "customer_request"
 }
 ```
@@ -42,7 +42,7 @@ Content-Type: application/json
 | Field | Type | Required | Notes |
 | ----- | ---- | -------- | ----- |
 | `payment_id` | string | yes | Must reference a payment in the `captured` state. |
-| `amount` | integer | yes | Smallest currency unit (cents for USD). Must be ≤ `remaining_refundable_amount` on the payment. |
+| `amount` | integer | yes | Smallest currency unit (cents for EUR). Must be ≤ `remaining_refundable_amount` on the payment. |
 | `currency` | string | yes | ISO 4217. Must match the original payment's currency. |
 | `reason` | string | no | One of: `customer_request`, `duplicate`, `fraudulent`, `other`. Used for analytics; does not affect processing. |
 
@@ -50,7 +50,7 @@ Content-Type: application/json
 
 ### Response codes
 
-| Status | Meaning |
+| Status | Description |
 | ------ | ------- |
 | `201 Created` | Refund accepted; returns the new refund resource (see [Refund object](#refund-object)). |
 | `400 amount_exceeds_remaining` | The amount exceeds `remaining_refundable_amount`. See [Troubleshoot](troubleshoot.md#amount-exceeds-remaining). |
@@ -66,7 +66,7 @@ Content-Type: application/json
   "object": "refund",
   "payment_id": "pay_01HABCDEF12345",
   "amount": 2500,
-  "currency": "USD",
+  "currency": "EUR",
   "status": "pending",
   "reason": "customer_request",
   "failure_code": null,
@@ -92,7 +92,7 @@ Content-Type: application/json
 
 ## Refund status codes
 
-| Status | Meaning | Terminal? |
+| Status | Des | Terminal? |
 | ------ | ------- | --------- |
 | `pending` | Submitted to the card network; awaiting confirmation. | No |
 | `succeeded` | Funds have moved out of your settlement account toward the customer. | Yes |
@@ -116,7 +116,7 @@ Two events are emitted for every refund.
     "id": "rfd_01HXYZ7890ABCDEF",
     "payment_id": "pay_01HABCDEF12345",
     "amount": 2500,
-    "currency": "USD",
+    "currency": "EUR",
     "status": "succeeded"
   }
 }
@@ -139,7 +139,7 @@ Fires when a `pending` refund moves to `succeeded`. Use this as the trigger for 
     "id": "rfd_01HXYZ7890ABCDEF",
     "payment_id": "pay_01HABCDEF12345",
     "amount": 2500,
-    "currency": "USD",
+    "currency": "EUR",
     "status": "failed",
     "failure_code": "card_declined"
   }

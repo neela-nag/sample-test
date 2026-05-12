@@ -49,7 +49,7 @@ An authorization has a finite life. If it is neither charged nor canceled, the p
 
 ## Authorization states
 
-| State | Meaning |
+| State | Description |
 | ----- | ------- |
 | `pending` | Authorization request accepted; awaiting the issuer's response |
 | `succeeded` | Funds successfully held on the customer's payment method |
@@ -66,11 +66,11 @@ An authorization has a finite life. If it is neither charged nor canceled, the p
 
 ## Example
 
-A customer places a $100.00 USD ecommerce order on 2026-05-01. The merchant authorizes the full $100.00 immediately but does not yet charge.
+A customer places a €100.00 EUR ecommerce order on 2026-05-01. The merchant authorizes the full €100.00 immediately but does not yet charge.
 
-1. The merchant sends a `POST /v1/authorizations` for `$100.00 USD` against the customer's card.
+1. The merchant sends a `POST /v1/authorizations` for `€100.00 EUR` against the customer's card.
 2. The API returns `authorization.status = "pending"` and an authorization ID prefixed `auth_`.
-3. Within seconds the issuer responds and the state moves to `succeeded`. The hold is now in place; the customer's available balance is $100.00 lower.
+3. Within seconds the issuer responds and the state moves to `succeeded`. The hold is now in place; the customer's available balance is €100.00 lower.
 4. On 2026-05-03 the warehouse ships the order. The merchant charges the authorization ([Charge a payment](charge-overview.md)) and the funds move to the merchant.
 
 ## What's not on this page

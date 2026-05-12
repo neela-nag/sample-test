@@ -22,20 +22,20 @@ Refunds are the only operation in the payment lifecycle that move money *back* t
 
 Issue a refund when:
 
-* The customer returned a product or canceled an order.
-* A charge was made for the wrong amount.
-* A service was not delivered.
-* A duplicate charge needs to be reversed *after* it has been captured.
+- the customer returned a product or canceled an order.
+- a charge was made for the wrong amount.
+- a service was not delivered.
+- a duplicate charge needs to be reversed *after* it has been captured.
 
 If the payment has only been **authorized** and not yet **charged**, do not refund — **cancel** the authorization instead. Cancellation is free and instant; refunds move real funds and take 3–10 business days to reach the customer.
 
-## Where a refund fits in the payment lifecycle
+## Where the refund fits in the payment lifecycle
 
 ```mermaid
 flowchart LR
     A([Authorize]) --> B([Charge])
     A -.cancel.-> X([Canceled])
-    B --> C{Refund?}
+    B --> C{Outcome}
     C -- full --> D([Refunded])
     C -- partial --> B
     C -- no --> E([Settled])
@@ -58,7 +58,7 @@ A refund is only valid against a payment in the **charged** state. Issuing one c
 
 ## Refund states
 
-| State | Meaning |
+| State | Description |
 | ----- | ------- |
 | `pending` | Accepted by the processor; funds have not yet moved |
 | `succeeded` | Funds have been returned to the customer |
@@ -76,13 +76,18 @@ A refund cannot move from `succeeded` back to any other state. Once succeeded, t
 
 ## Example
 
-A customer is charged **$100.00 USD** on 2026-05-01 against payment `pay_01HABCDEF12345`. On 2026-05-03 they return one of two items and request a partial refund of **$25.00**.
+A customer is charged **€100.00 EUR** on 2026-05-01 against payment `pay_01HABCDEF12345`. On 2026-05-03 they return one of two items and request a partial refund of **€25.00**.
 
-1. The developer creates a refund for `$25.00` against `pay_01HABCDEF12345`.
+1. The developer creates a refund for `€25.00` against `pay_01HABCDEF12345`.
 2. The API returns `refund.status = "pending"` and a refund ID prefixed `rfd_`.
 3. Within seconds the processor confirms the refund and the state moves to `succeeded`.
 4. The original payment now shows `remaining_refundable_amount = 7500` (cents) and `state = "partially_refunded"`.
-5. The customer sees the $25.00 credit on their card statement within 3–10 business days.
+5. The customer sees the €25.00 credit on their card statement within 3–10 business days.
+
+<figure markdown>
+  ![Payment detail panel for pay_01HABCDEF12345 with a Partially refunded badge. The Refunds subsection shows one refund of −€25.00 EUR (Succeeded, 2026-04-12) and the Remaining refundable card reads €75.00 EUR.](../images/dashboard-payment-detail.svg)
+  <figcaption>The same payment after the partial refund. The status badge has flipped from <strong>Captured</strong> to <strong>Partially refunded</strong>, and the <strong>Remaining refundable</strong> card now caps any future refund at €75.00.</figcaption>
+</figure>
 
 ## What's not on this page
 

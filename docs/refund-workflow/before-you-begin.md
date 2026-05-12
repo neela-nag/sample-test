@@ -26,7 +26,7 @@ The following table describes the roles and the prerequisites for a refund trans
 | Operations | A user account with the **Operations** role | Ask your account admin |
 | Finance | A user account with the **Finance** role and access to the daily ledger export | Ask your account admin |
 
-You also need a **captured** payment to refund. Use payment ID `pay_01HABCDEF12345` in the sandbox — it's pre-loaded with $100.00 USD captured against a sample card.
+You also need a **captured** payment to refund. Use payment ID `pay_01HABCDEF12345` in the sandbox — it's pre-loaded with €100.00 EUR captured against a sample card.
 
 ### The payment workflow
 

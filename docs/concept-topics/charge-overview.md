@@ -45,7 +45,7 @@ flowchart LR
     class A,B,Z money
 ```
 
-A charge can be **full** (the entire authorized amount) or **partial** (any amount up to the authorized ceiling). If you authorized $100 and only ship $80 of goods, you can charge $80 and let the remaining $20 hold expire — or cancel it explicitly.
+A charge can be **full** (the entire authorized amount) or **partial** (any amount up to the authorized ceiling). If you authorized €100 and only ship €80 of goods, you can charge €80 and let the remaining €20 hold expire — or cancel it explicitly.
 
 ## Charge types
 
@@ -57,7 +57,7 @@ A charge can be **full** (the entire authorized amount) or **partial** (any amou
 
 ## Charge states
 
-| State | Meaning |
+| State | Description |
 | ----- | ------- |
 | `pending` | Charge request accepted; awaiting confirmation from the network |
 | `succeeded` | Funds have moved to the merchant's settlement account |
@@ -75,13 +75,13 @@ A charge can be **full** (the entire authorized amount) or **partial** (any amou
 
 ## Example
 
-Continuing the example from [Authorize a payment](authorize-overview.md): a customer was authorized for **$100.00 USD** on 2026-05-01 against payment `pay_01HABCDEF12345`. On 2026-05-03 the warehouse ships only one of two items.
+Continuing the example from [Authorize a payment](authorize-overview.md): a customer was authorized for **€100.00 EUR** on 2026-05-01 against payment `pay_01HABCDEF12345`. On 2026-05-03 the warehouse ships only one of two items.
 
-1. The developer calls `POST /v1/charges` for `$80.00 USD` against authorization `auth_01HXYZ…`.
+1. The developer calls `POST /v1/charges` for `€80.00 EUR` against authorization `auth_01HXYZ…`.
 2. The API returns `charge.status = "pending"` and a charge ID prefixed `chg_`.
 3. Within seconds the network confirms and the state moves to `succeeded`.
-4. The remaining `$20.00` of the authorization is left to expire (or canceled explicitly via [Cancel a payment](cancel-overview.md)).
-5. The customer sees an `$80.00` debit on their card statement within 1–3 business days.
+4. The remaining `€20.00` of the authorization is left to expire (or canceled explicitly via [Cancel a payment](cancel-overview.md)).
+5. The customer sees an `€80.00` debit on their card statement within 1–3 business days.
 
 ## What's not on this page
 

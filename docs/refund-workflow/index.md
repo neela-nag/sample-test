@@ -50,7 +50,7 @@ flowchart LR
 
 ## Example
 
-A customer charged $100.00 USD on 2026-04-12 requests a $25.00 partial refund the next day. The developer issues the refund (~1 minute), the ops associate confirms in the dashboard (~5 minutes), and finance reconciles the row in the 2026-04-14 ledger export (~15 minutes during the morning batch). Total wall time across all three teams: under 30 minutes.
+A customer charged €100.00 EUR on 2026-04-12 requests a €25.00 partial refund the next day. The developer issues the refund (~1 minute), the ops associate confirms in the dashboard (~5 minutes), and finance reconciles the row in the 2026-04-14 ledger export (~15 minutes during the morning batch). Total wall time across all three teams: under 30 minutes.
 
 ## What's not on this page
 

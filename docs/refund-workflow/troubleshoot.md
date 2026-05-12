@@ -37,12 +37,23 @@ A symptom-driven decision tree for the five failure patterns that account for ro
 
 1. **Check sandbox vs. production.** Sandbox always resolves in <5 seconds. Longer than that in sandbox = your webhook receiver is the problem.
 2. **Check the dashboard** at **Payments → Refunds**. If it shows **Succeeded** but you have no webhook, your subscription is misconfigured.
+
+    <figure markdown>
+      ![PayCart Refunds list filtered to a single refund: rfd_01HXYZ7890ABCDEF, linked to pay_01HABCDEF12345, amount −€25.00 EUR, status Succeeded, created 2026-04-12 09:41 UTC.](../images/dashboard-refunds-list.svg)
+      <figcaption>If the dashboard shows <strong>Succeeded</strong> but no webhook arrived, the refund itself is fine — the problem is in your webhook delivery, not the refund.</figcaption>
+    </figure>
+
 3. **Check your webhook delivery log** at Dashboard → **Developers → Webhooks** → endpoint → **Recent deliveries**. Look for retries with non-2xx responses. Fix your endpoint, then click **Resend** on the failed event.
 4. **If still pending after 30 minutes in production**, file a support ticket with the refund ID. Do **not** retry the request — the original is still in flight and a retry with a new idempotency key would create a duplicate.
 
 ## Refund failed in terminal state
 
 **Condition.** A `refund.failed` webhook arrived, or the dashboard shows **Failed**.
+
+<figure markdown>
+  ![PayCart refund detail page for rfd_01HFAILED99XYZ. Status badge reads Failed in red. A red alert banner shows failure_code card_declined with the message "The issuing bank rejected the credit attempt. Usually a closed card." Refund amount −€40.00 EUR against pay_01HABCDEF12345, created 2026-05-04 14:22 UTC.](../images/dashboard-refund-failed.svg)
+  <figcaption>The refund detail page for a failed refund. The <strong>failure_code</strong> field — here <code>card_declined</code> — drives the remedy below.</figcaption>
+</figure>
 
 **Cause.** The `failure_code` field in the webhook payload identifies the specific cause. Four codes account for nearly all failures.
 
@@ -64,6 +75,12 @@ A symptom-driven decision tree for the five failure patterns that account for ro
 **Remedy.**
 
 1. Get the **remaining refundable** value from `GET /v1/payments/{payment_id}` (field: `remaining_refundable_amount`) or from the dashboard.
+
+    <figure markdown>
+      ![Payment detail panel for pay_01HABCDEF12345 showing the Remaining refundable card with €75.00 EUR — the maximum amount any subsequent refund can request against this payment.](../images/dashboard-payment-detail.svg)
+      <figcaption>The <strong>Remaining refundable</strong> card on the payment detail panel is the dashboard equivalent of <code>remaining_refundable_amount</code>. Any refund amount above this value triggers <code>400 amount_exceeds_remaining</code>.</figcaption>
+    </figure>
+
 2. Reissue the refund with `amount` ≤ that value.
 3. If the customer is owed more than `remaining_refundable_amount` and the original payment is fully refunded, the additional credit must be issued outside PayCart (manual ACH, store credit).
 
