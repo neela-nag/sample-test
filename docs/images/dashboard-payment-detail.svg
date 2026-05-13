@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif">
+  <title id="title">PayCart dashboard — payment detail panel showing a partially refunded payment</title>
+  <desc id="desc">Screenshot of the PayCart dashboard payment detail panel for payment pay_01HABCDEF12345. The status badge reads "Partially refunded". The Refunds subsection lists one refund: rfd_01HXYZ7890ABCDEF for €25.00 EUR with status Succeeded, dated 2026-04-12. The Remaining refundable amount is €75.00 EUR.</desc>
+
+  <!-- Window chrome -->
+  <rect x="0" y="0" width="1200" height="720" fill="#f5f6fa"/>
+  <rect x="0" y="0" width="1200" height="44" fill="#e6e8ee"/>
+  <circle cx="22" cy="22" r="6" fill="#ff5f57"/>
+  <circle cx="42" cy="22" r="6" fill="#febc2e"/>
+  <circle cx="62" cy="22" r="6" fill="#28c840"/>
+  <rect x="220" y="12" width="760" height="22" rx="4" fill="#ffffff" stroke="#cfd2da" stroke-width="1"/>
+  <text x="234" y="28" font-size="12" fill="#5b6172">https://dashboard.paycart.example/payments/pay_01HABCDEF12345</text>
+
+  <!-- Sidebar -->
+  <rect x="0" y="44" width="220" height="676" fill="#1f2440"/>
+  <text x="24" y="84" font-size="16" font-weight="700" fill="#ffffff">PayCart</text>
+  <text x="24" y="130" font-size="11" fill="#8b91ad" letter-spacing="1">DASHBOARD</text>
+  <text x="24" y="158" font-size="13" fill="#c8ccdb">Home</text>
+  <text x="24" y="190" font-size="11" fill="#8b91ad" letter-spacing="1">PAYMENTS</text>
+  <rect x="14" y="204" width="192" height="30" rx="4" fill="#2a3060"/>
+  <text x="28" y="224" font-size="13" fill="#ffffff" font-weight="600">Payments</text>
+  <text x="28" y="252" font-size="13" fill="#c8ccdb">Refunds</text>
+  <text x="28" y="278" font-size="13" fill="#c8ccdb">Disputes</text>
+  <text x="24" y="316" font-size="11" fill="#8b91ad" letter-spacing="1">REPORTS</text>
+  <text x="28" y="344" font-size="13" fill="#c8ccdb">Ledger</text>
+  <text x="28" y="370" font-size="13" fill="#c8ccdb">Exports</text>
+
+  <!-- Main panel -->
+  <text x="252" y="92" font-size="13" fill="#7b8198">Payments  ›  pay_01HABCDEF12345</text>
+
+  <!-- Header row -->
+  <text x="252" y="134" font-size="24" font-weight="700" fill="#1f2440">€100.00 EUR</text>
+  <rect x="430" y="114" width="158" height="26" rx="13" fill="#fff4e0" stroke="#e0a23a" stroke-width="1"/>
+  <text x="448" y="131" font-size="12" font-weight="600" fill="#8a5a00">Partially refunded</text>
+  <text x="252" y="158" font-size="13" fill="#5b6172">pay_01HABCDEF12345 · Visa •••• 4242 · 2026-04-10</text>
+
+  <!-- Summary cards -->
+  <rect x="252" y="184" width="280" height="84" rx="6" fill="#ffffff" stroke="#e1e3ec" stroke-width="1"/>
+  <text x="270" y="208" font-size="12" fill="#7b8198">Captured</text>
+  <text x="270" y="240" font-size="22" font-weight="700" fill="#1f2440">€100.00</text>
+  <text x="270" y="258" font-size="11" fill="#7b8198">EUR</text>
+
+  <rect x="548" y="184" width="280" height="84" rx="6" fill="#ffffff" stroke="#e1e3ec" stroke-width="1"/>
+  <text x="566" y="208" font-size="12" fill="#7b8198">Refunded so far</text>
+  <text x="566" y="240" font-size="22" font-weight="700" fill="#b13a3a">−€25.00</text>
+  <text x="566" y="258" font-size="11" fill="#7b8198">EUR · 1 refund</text>
+
+  <rect x="844" y="184" width="332" height="84" rx="6" fill="#ecf5ee" stroke="#9bc6a8" stroke-width="1"/>
+  <text x="862" y="208" font-size="12" fill="#386b46">Remaining refundable</text>
+  <text x="862" y="240" font-size="22" font-weight="700" fill="#1f5b32">€75.00</text>
+  <text x="862" y="258" font-size="11" fill="#386b46">EUR · max for next refund</text>
+
+  <!-- Refunds subsection -->
+  <text x="252" y="310" font-size="16" font-weight="700" fill="#1f2440">Refunds (1)</text>
+
+  <rect x="252" y="324" width="924" height="220" rx="6" fill="#ffffff" stroke="#e1e3ec" stroke-width="1"/>
+
+  <!-- Table header -->
+  <rect x="252" y="324" width="924" height="36" fill="#f5f6fa"/>
+  <text x="270" y="346" font-size="11" font-weight="600" fill="#5b6172" letter-spacing="0.5">REFUND ID</text>
+  <text x="528" y="346" font-size="11" font-weight="600" fill="#5b6172" letter-spacing="0.5">AMOUNT</text>
+  <text x="678" y="346" font-size="11" font-weight="600" fill="#5b6172" letter-spacing="0.5">STATUS</text>
+  <text x="838" y="346" font-size="11" font-weight="600" fill="#5b6172" letter-spacing="0.5">CREATED</text>
+  <text x="1008" y="346" font-size="11" font-weight="600" fill="#5b6172" letter-spacing="0.5">UPDATED</text>
+
+  <!-- Row 1 -->
+  <line x1="252" y1="360" x2="1176" y2="360" stroke="#e1e3ec"/>
+  <text x="270" y="392" font-size="13" fill="#2c4ea1" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">rfd_01HXYZ7890ABCDEF</text>
+  <text x="528" y="392" font-size="13" font-weight="600" fill="#b13a3a">−€25.00 EUR</text>
+
+  <rect x="678" y="376" width="92" height="22" rx="11" fill="#e6f4ea" stroke="#5fa572" stroke-width="1"/>
+  <circle cx="691" cy="387" r="3" fill="#2e7d32"/>
+  <text x="700" y="391" font-size="12" font-weight="600" fill="#1f5b32">Succeeded</text>
+
+  <text x="838" y="392" font-size="13" fill="#5b6172">2026-04-12 09:41</text>
+  <text x="1008" y="392" font-size="13" fill="#5b6172">2026-04-12 09:41</text>
+
+  <!-- Empty state hint below row -->
+  <text x="270" y="430" font-size="12" fill="#7b8198">Showing 1 of 1 refund for this payment.</text>
+
+  <!-- Footer hint / link -->
+  <rect x="252" y="572" width="924" height="48" rx="6" fill="#eef2ff" stroke="#c7d2fe" stroke-width="1"/>
+  <text x="272" y="601" font-size="13" fill="#1f2440">Need to issue another refund? Use </text>
+  <text x="510" y="601" font-size="13" font-weight="600" fill="#2c4ea1">Issue refund</text>
+  <text x="588" y="601" font-size="13" fill="#1f2440"> — limited to €75.00 EUR remaining.</text>
+</svg>

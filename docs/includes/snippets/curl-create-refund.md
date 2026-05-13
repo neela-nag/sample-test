@@ -6,7 +6,7 @@ curl https://sandbox.paycart.example/v1/refunds \
   -d '{
     "payment_id": "pay_01HABCDEF12345",
     "amount": 2500,
-    "currency": "USD",
+    "currency": "EUR",
     "reason": "customer_request"
   }'
 ```

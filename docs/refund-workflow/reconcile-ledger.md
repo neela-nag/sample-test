@@ -38,7 +38,7 @@ Use this task once per business day, after 06:00 UTC, to reconcile the previous 
 
     ```csv
     event_id,event_type,amount,currency,reference_id,linked_payment_id,occurred_at
-    evt_01HZ123,refund.succeeded,-2500,USD,rfd_01HXYZ7890ABCDEF,pay_01HABCDEF12345,2026-04-12T14:22:35Z
+    evt_01HZ123,refund.succeeded,-2500,EUR,rfd_01HXYZ7890ABCDEF,pay_01HABCDEF12345,2026-04-12T14:22:35Z
     ```
 
 3. **Verify the five reconciliation fields** for each refund row:
@@ -67,9 +67,9 @@ Every `refund.succeeded` row from yesterday's export is matched against a corres
 
 A reconciliation pass on 2026-04-13 covering activity from 2026-04-12:
 
-- Export contains 14 `refund.succeeded` rows summing to $1,847.50 USD debit.
+- Export contains 14 `refund.succeeded` rows summing to €1,847.50 EUR debit.
 - 13 of 14 match cleanly to GL entries within 5 minutes.
-- 1 row (the customer's $25 refund from [Step 2's example](confirm-in-the-dashboard.md#example)) fails to match — it's missing from the GL because the developer's webhook handler timed out yesterday and never logged the entry. File a ticket with the developer team using the export row + `reference_id`. Reconciliation is signed off as **complete with one open ticket**.
+- 1 row (the customer's €25 refund from [Step 2's example](confirm-in-the-dashboard.md#example)) fails to match — it's missing from the GL because the developer's webhook handler timed out yesterday and never logged the entry. File a ticket with the developer team using the export row + `reference_id`. Reconciliation is signed off as **complete with one open ticket**.
 
 ## What to do next
 

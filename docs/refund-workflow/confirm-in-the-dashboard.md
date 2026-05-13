@@ -37,6 +37,11 @@ Use this task whenever a developer has issued a refund and the customer is await
 
 2. **Filter to the refund** by ID (e.g. `rfd_01HXYZ7890ABCDEF`), or by date range plus the customer's email. The refund row shows:
 
+    <figure markdown>
+      ![PayCart Refunds list filtered to a single refund: rfd_01HXYZ7890ABCDEF, linked to pay_01HABCDEF12345, amount −€25.00 EUR, status Succeeded, created 2026-04-12 09:41 UTC.](../images/dashboard-refunds-list.svg)
+      <figcaption>Filtering the Refunds list by ID. The result chip shows <strong>1 of 1</strong> when the filter matches exactly one refund.</figcaption>
+    </figure>
+
     | Field | What it tells you |
     | ----- | ----------------- |
     | **ID** | The refund's own ID. Click to open the detail panel. |
@@ -54,6 +59,11 @@ Use this task whenever a developer has issued a refund and the customer is await
     - A **Remaining refundable** amount (original captured amount minus all `Succeeded` refunds).
     - A status badge that flips from **Captured** to **Partially refunded** or **Refunded** depending on whether the cumulative refunds equal the captured amount.
 
+    <figure markdown>
+      ![Payment detail panel for pay_01HABCDEF12345 with status Partially refunded. Refunds subsection lists rfd_01HXYZ7890ABCDEF — −€25.00 EUR — Succeeded — 2026-04-12. Remaining refundable: €75.00 EUR.](../images/dashboard-payment-detail.svg)
+      <figcaption>The payment detail panel after a €25.00 partial refund. The <strong>Remaining refundable</strong> card caps the size of any future refund against this payment.</figcaption>
+    </figure>
+
 5. **Reply to the customer's ticket** with the refund amount, the last four digits of their card, the refund ID (`rfd_…`), and the standard 3–10 business day messaging. Mark the ticket **Refund issued** and close it.
 
 ## Result
@@ -62,17 +72,17 @@ The customer ticket is closed with a refund-issued note  containing the refund I
 
 ## Example
 
-The customer's ticket asked for a $25 refund against a $100 charge. After step 4, the payment detail panel shows:
+The customer's ticket asked for a €25 refund against a €100 charge. After step 4, the payment detail panel shows:
 
-- **Refunds (1):** `rfd_01HXYZ7890ABCDEF` — $25.00 USD — Succeeded — 2026-04-12.
-- **Remaining refundable:** $75.00 USD.
+- **Refunds (1):** `rfd_01HXYZ7890ABCDEF` — €25.00 EUR — Succeeded — 2026-04-12.
+- **Remaining refundable:** €75.00 EUR.
 - **Status badge:** *Partially refunded.*
 
-If the customer later asks for a second partial refund, **$75.00 USD** is the maximum that can be issued; submitting more triggers `400 amount_exceeds_remaining` (see [Troubleshoot](troubleshoot.md#amount-exceeds-remaining)).
+If the customer later asks for a second partial refund, **€75.00 EUR** is the maximum that can be issued; submitting more triggers `400 amount_exceeds_remaining` (see [Troubleshoot](troubleshoot.md#amount-exceeds-remaining)).
 
 ## What to do next
 
-At end of day, finance will [reconcile this refund against the ledger export](reconcile-ledger.md). You don't need to do anything for that — they pull the export themselves — but if you've issued an unusually large refund (>$5,000 USD), email finance directly so they aren't surprised by it in the morning report.
+At end of day, finance will [reconcile this refund against the ledger export](reconcile-ledger.md). You don't need to do anything for that — they pull the export themselves — but if you've issued an unusually large refund (>€5,000 EUR), email finance directly so they aren't surprised by it in the morning report.
 
 ## Related links
 

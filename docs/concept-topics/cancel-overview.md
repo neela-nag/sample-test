@@ -59,7 +59,7 @@ Cancel is **free** and **almost instant**. There is no settlement cost, no fee, 
 
 ## Cancel states
 
-| State | Meaning |
+| State | Description |
 | ----- | ------- |
 | `pending` | Cancel request accepted; awaiting confirmation from the issuer |
 | `succeeded` | The hold has been released |
@@ -74,7 +74,7 @@ Cancel is **free** and **almost instant**. There is no settlement cost, no fee, 
 
 ## Example
 
-Continuing the example from [Authorize a payment](authorize-overview.md): the merchant authorized **$100.00 USD** on 2026-05-01 against payment `pay_01HABCDEF12345`. On 2026-05-02 the customer cancels the order before it ships.
+Continuing the example from [Authorize a payment](authorize-overview.md): the merchant authorized **€100.00 EUR** on 2026-05-01 against payment `pay_01HABCDEF12345`. On 2026-05-02 the customer cancels the order before it ships.
 
 1. The developer calls `POST /v1/cancels` against authorization `auth_01HXYZ…`.
 2. The API returns `cancel.status = "pending"` and a cancel ID prefixed `cnl_`.

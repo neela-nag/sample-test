@@ -7,7 +7,7 @@ const refund = await paycart.refunds.create(
   {
     payment_id: "pay_01HABCDEF12345",
     amount: 2500,
-    currency: "USD",
+    currency: "EUR",
     reason: "customer_request",
   },
   { idempotencyKey: "refund-req-9f2a1c" },
