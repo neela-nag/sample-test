@@ -1,7 +1,7 @@
-site_name: "Sample Documentation"
+site_name: "Documentation for Paysafe cart"
 site_description: "An end-to-end documentation walkthrough for issuing and reconciling a refund on a fictional payments platform."
 site_author: "Neelam"
-site_url: "https://nelly-welly.github.io/sample-test/"
+site_url: "https://neela-nag.github.io/sample-test/"
 
 nav:
   - Home: index.md
